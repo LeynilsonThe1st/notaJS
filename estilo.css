@@ -1,0 +1,315 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body {
+	line-height: 30px;
+	font-family: 'Kefa', rockwell;
+	transition: all .2s ease-in-out;
+}
+
+body.dia {
+	color: #252525;
+	background-color: hsl(0, 0%, 100%);
+}
+
+body.noite {
+	color: #fff;
+	background-color: hsl(210, 40%, 20%);
+}
+
+.container {
+	width: 96%;
+	display: flex;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+#Todo {
+	width: 96%;
+	padding: 40px;
+	max-width: 800px;
+	margin-top: 40px;
+	min-height: 570px;
+	height: calc(100vh - 120px);
+}
+
+.dia #Todo {
+	background-color: hsl(0, 0%, 90%);
+}
+
+.noite #Todo {
+	color: #fff;
+	background-color: hsl(210, 40%, 10%);
+}
+
+.group {
+	display: flex;
+	margin-bottom: 20px;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.feather {
+	fill: none;
+	width: 24px;
+	height: 24px;
+	stroke-width: 2px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	transition: all .6s ease-in-out;
+}
+
+#modo {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 3px;
+	padding: 12px 20px;
+	transition: all .2s ease-in-out;
+}
+
+.noite #modo:hover,
+.noite #modo:focus {
+	box-shadow: 0px 0px 80px 4px #fb0;
+}
+
+#modo:hover .feather,
+#modo:focus .feather {
+	transform: rotatez(720deg);
+}
+
+.dia #modo {
+	background-color: hsl(210, 40%, 10%);
+}
+
+.noite #modo {
+	background-color: #fb0;
+}
+
+.feather-sun {
+	fill: none;
+	stroke: #252525;
+	stroke-width: 2px;
+}
+
+.feather-moon {
+	fill: #eebc33;
+	stroke: #eebc33;
+	stroke-width: 2px;
+}
+
+.noite .feather-moon {
+	display: none;
+}
+
+.dia .feather-sun {
+	display: none;
+}
+
+h1 {
+	font-size: 38px;
+	font-weight: 500;
+	font-family: rockwell, 'Kefa';
+}
+
+.input-group {
+	display: flex;
+	margin-bottom: 15px;
+}
+
+input {
+	flex: 5;
+	display: flex;
+	outline: none;
+	font-size: 16px;
+	border-radius: 3px;
+	padding: 15px 20px;
+	font-family: 'Kefa';
+	transition: all .2s ease-in-out;
+	border: 3px solid hsl(210, 6%, 69%);
+	background-color: hsl(210, 6%, 69%);
+}
+
+input::placeholder {
+	color: #555;
+}
+
+.dia input:focus {
+	border: 3px solid hsl(210, 6%, 69%);
+	background-color: hsl(210, 5%, 92%);
+}
+
+.noite input:focus {
+	background-color: hsl(210, 5%, 92%);
+}
+
+.noite input:focus::placeholder {
+	color: #999;
+}
+
+#add {
+	flex: 1;
+	border: none;
+	z-index: 100;
+	color: #fff;
+	outline: none;
+	display: flex;
+	cursor: pointer;
+	font-size: 18px;
+	margin-left: 5px;
+	padding: 0px 20px;
+	border-radius: 3px;
+	align-items: center;
+	justify-content: center;
+	transition: all .2s ease-in-out;
+	background-color: hsl(120, 45%, 45%);
+}
+
+#add:hover,
+#add:focus {
+	background-color: hsl(120, 50%, 50%);
+	box-shadow: 0px 0px 80px 2px hsl(120, 40%, 40%);
+}
+
+#add:hover .feather-plus,
+#add:focus .feather-plus,
+.del:hover .feather-x,
+.del:focus .feather-x {
+	transform: rotatez(360deg);
+	stroke-width: 4px;
+}
+
+.dia #add:hover,
+.dia #add:focus,
+.dia .del:hover,
+.dia .del:focus {
+	box-shadow: none;
+}
+
+.feather-plus {
+	width: 30px;
+	height: 30px;
+	stroke: #fff;
+	stroke-width: 2px;
+	stroke-linecap: round;
+	transition: all .6s ease-in-out;
+}
+
+.feather-x {
+	stroke: #fff;
+	stroke-width: 2px;
+	stroke-linecap: round;
+	transition: all .6s ease-in-out;
+}
+
+
+#mylist {
+	margin-top: 20px;
+	position: relative;
+	overflow-y: scroll;
+}
+
+li {
+	padding: 10px;
+	display: flex;
+	list-style: none;
+	border-radius: 3px;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+li p::first-letter {
+	text-transform: capitalize;
+}
+
+li p {
+	flex: 1;
+	font-size: 20px;
+	margin: 0px 10px;
+	transition: all .2s ease-in-out;
+}
+
+.dia li:nth-child(odd) {
+	background-color: hsl(210, 6%, 85%);
+
+}
+
+.noite li:nth-child(odd) {
+	background-color: hsl(210, 40%, 15%);
+}
+
+li span {
+	color: #fff;
+	padding: 0px 10px;
+	text-align: right;
+	border-radius: 3px;
+	align-self: flex-start;
+	background-color: hsl(200, 57%, 47%);
+}
+
+.del {
+	order: -1;
+	border: none;
+	display: flex;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 4px;
+	align-items: center;
+	align-self: flex-start;
+	justify-content: center;
+	transition: all .2s ease-in-out;
+	background-color: hsl(355, 85%, 57%);
+}
+
+.del:hover,
+.del:focus {
+	background-color: hsl(355, 100%, 60%);
+	box-shadow: 0px 0px 20px 0px hsl(355, 47%, 34%);
+}
+
+@media only screen and (max-width: 460px) {
+	#Todo {
+		padding: 40px 10px;
+		margin-top: 20px;
+	}
+
+	h1 {
+		font-size: 32px;
+		text-align: center;
+	}
+
+	.input-group,
+	.group {
+		flex-direction: column;
+	}
+
+	.group {
+		align-items: initial;
+		margin-bottom: 10px;
+	}
+
+	#add {
+		margin: 0;
+		margin-top: 5px;
+		padding: 10px 20px;
+	}
+
+	#modo {
+		margin-top: 5px;
+		padding: 10px 20px;
+		max-width: 64px;
+		align-self: flex-end;
+	}
+
+	li p {
+		font-size: 16px;
+		line-height: 25px;
+	}
+
+}

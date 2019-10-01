@@ -129,6 +129,12 @@ h1 span {
 	font-family: 'kefa', rockwell;
 }
 
+h1 span a{
+	color: currentColor;
+	text-decoration: none;
+	text-anchor:  
+}
+
 .dia h1 span {
 	background-color: hsl(44, 85%, 57%);
 }

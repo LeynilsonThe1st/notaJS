@@ -9,18 +9,18 @@
  * =========
  *
  * --------------------------------------------------------------------------
- * .A	AJUSTA A ALTURA DO UL#MYLIST.
- *.A.1		- Actualiza o pagina para que a altura do ul# mylist seja ajustada.
+ * .A	Verifa se há algum modo guardado e Adiciona o modo guardado 
+ * na memoria do browser.
+ *.A.1		- Muda o modo ( dia ou noite ) e guarda na memória do browser.
  * --------------------------------------------------------------------------
- * .B	VERIFICA SE HÁ ALGUM MODO GUARDADO.
- * .B.1 	- 	Adiciona o modo guardado na memoria do browser
+ * .B	Ajusta a altura do ul#mylist.
+ * .B.1 	- 	Actualiza o pagina para que a altura do ul#mylist seja ajustada.
  * 						se este for diferente do modo predifinido ( dia ).
  * .B.2		- 	Muda o modo(escuro ou claro) e guarda na memória do browser.
  * --------------------------------------------------------------------------
- * .C VERIFICA SE HÁ ALGUM MODO GUARDADO NA MEMÓRIA DO BROWSER
- * .C.1		-		Cria um elemento svg.
+ * .C Verifica se há dados na memória do browser.
  * --------------------------------------------------------------------------
- * .D MOSTRA OS DADOS NA PÁGINA.
+ * .D Mostra os dados na página.
  * --------------------------------------------------------------------------
  * .E	CREATE.
  * .E.1 	-		STORE.
@@ -29,6 +29,8 @@
  * .E.1.3	- 	Actualiza a página sempre que for guardado um valor.
  * --------------------------------------------------------------------------
  * .F DELETE
+ * --------------------------------------------------------------------------
+ * .G	Cria um elemento svg.
  * --------------------------------------------------------------------------
  *  Date: 2019-08-24T19:40Z
  */
@@ -54,7 +56,7 @@
 		t = document.querySelector('#Todo').offsetHeight,
 		g = document.querySelector('.group').offsetHeight,
 		ig = document.querySelector('.input-group').offsetHeight,
-		h = t - g - ig - 100;
+		h = t - g - ig - 110;
 	mylist.style.maxHeight = `${h}px`;
 
 	mostrarDados();
@@ -65,7 +67,7 @@
 	document.querySelector('input').addEventListener('keydown', e => { if (e.key === "Enter") criarGuardar(); });
 	document.querySelectorAll('.del').forEach(x => x.addEventListener('click', e => apagar(e)));
 	
-	//	.A.1	Muda o modo ( dia ou noite ) e guarda na memória do browser.	
+	//	.A.1	Muda o modo ( dia ou noite ) e guarda na memória do browser.
 	function mudarModo() {
 
 	 	if (localStorage.modo === "noite") {
@@ -84,7 +86,7 @@
 	//	.B.1 Actualiza o pagina para que a altura do ul#mylist seja ajustada.
 	function refresh(e) {
 		var screen = document.body.offsetWidth;
-		if (screen > 459 && screen < 465) {
+		if (screen > 460 || screen < 460) {
 			window.location.reload();
 		}
 	}
@@ -112,7 +114,7 @@
 			window.alert("Este site utiliza a memória do browser (\"LocalSotorage\")\nCaso esteja desativada o programa deixara de funcionar\n\nInsira alguma coisa a sua lista!");
 		}
 	}
-	//	.E Create
+	//	.E	Create
 	function criarGuardar() {
 		var inputField = document.querySelector('input'),
 			val = inputField.value.toLowerCase().trim();
@@ -158,11 +160,12 @@
 			localStorage.dados = JSON.stringify(todos); // Actualiza os dados na memória.
 			document.querySelector('#mylist').removeChild(liClicado); // remove o li na página.
 			document.body.style.transition = 'none';
+			window.location.reload();
 		} else {
 			console.warn("erro", index, liClicado, pTexto);
 		}
 	}
-	// Cria um botão com um svg "X" para apagar 
+	//	.G	Cria um botão com um svg "X" para apagar 
 	function createSvg() {
 
 		var btn = document.createElement('button'),

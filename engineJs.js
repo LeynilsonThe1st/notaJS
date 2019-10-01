@@ -48,8 +48,9 @@
  //	Inicia o codigo quando o document for carregado.
  document.body.onload = () => {
 
+	 
 	// Recebe os dados guardados na memória do browser.
-	var todos = JSON.parse(localStorage.dados);
+	if (localStorage.dados !== undefined) var todos = JSON.parse(localStorage.dados);
 	
 	//	.B	Ajusta a altura do ul#mylist.
 	var mylist = document.querySelector('#mylist'),
